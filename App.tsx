@@ -1,12 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { Block, Text, Button, Input } from './components';
+import { ThemeProvider } from './hooks/useTheme';
+import { Login } from './screens';
 
-export default function App() {
+const App = () => {
   return (
-    <Block flex color="#FFF" align="center" justify="center">
-      <Text color="blue" h1>
-        Hello its me :D{' '}
-      </Text>
-    </Block>
+    <ThemeProvider>
+      <Login />
+    </ThemeProvider>
   );
-}
+};
+
+export default App;
