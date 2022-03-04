@@ -4,7 +4,8 @@ import React from 'react';
 interface IBlock extends ViewProps {
   children?: React.ReactNode;
   flex?: ViewStyle['flex'];
-  row?: ViewStyle['flexDirection'];
+  row?: boolean;
+  column?: boolean;
   color?: ViewStyle['backgroundColor'];
   align?: ViewStyle['alignItems'];
   justify?: ViewStyle['justifyContent'];
@@ -28,6 +29,7 @@ const Block = ({
   children,
   flex,
   row,
+  column,
   color,
   align,
   justify,
@@ -50,6 +52,7 @@ const Block = ({
     center !== undefined && { alignItems: 'center', justifyContent: 'center' },
     flex !== undefined && { flex },
     row !== undefined && { flexDirection: 'row' },
+    column !== undefined && { flexDirection: 'column' },
     color !== undefined && { backgroundColor: color },
     align !== undefined && { alignItems: align },
     justify !== undefined && { justifyContent: justify },
