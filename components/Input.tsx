@@ -1,4 +1,11 @@
-import { TextInput, TextInputProps, StyleSheet, StyleProp, ViewStyle } from 'react-native';
+import {
+  TextInput,
+  TextInputProps,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+  ColorValue,
+} from 'react-native';
 import React from 'react';
 import useTheme from '../hooks/useTheme';
 
@@ -14,6 +21,8 @@ interface IInput extends TextInputProps {
   paddingHorizontal?: ViewStyle['paddingHorizontal'];
   paddingVertical?: ViewStyle['paddingVertical'];
   style?: StyleProp<ViewStyle>;
+  color?: ColorValue;
+  backgroundColor?: ViewStyle['backgroundColor'];
 }
 
 const Input = ({
@@ -29,6 +38,8 @@ const Input = ({
   paddingHorizontal,
   paddingVertical,
   placeholderTextColor,
+  color,
+  backgroundColor,
   style,
   ...props
 }: IInput) => {
@@ -42,6 +53,8 @@ const Input = ({
       paddingHorizontal: sizes.base,
       borderColor: colors.inputBorder,
     },
+    color !== undefined && { color },
+    backgroundColor !== undefined && { backgroundColor },
     margin !== undefined && { margin },
     marginTop !== undefined && { marginTop },
     marginBottom !== undefined && { marginBottom },
